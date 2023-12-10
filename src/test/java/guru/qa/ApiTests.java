@@ -1,9 +1,9 @@
 package guru.qa;
 
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 
 public class ApiTests extends TestBase {
@@ -14,7 +14,7 @@ public class ApiTests extends TestBase {
                 .log().method()
                 .log().body()
                 .body("{ \"email\": \"eve.holt@reqres.in\", \"password\": \"pistol\"}")
-                .contentType(ContentType.JSON)
+                .contentType(JSON)
                 .when()
                 .post("/register")
                 .then()
@@ -31,7 +31,7 @@ public class ApiTests extends TestBase {
                 .log().method()
                 .log().body()
                 .body("{ \"email\": \"sydney@fife\"}")
-                .contentType(ContentType.JSON)
+                .contentType(JSON)
                 .when()
                 .post("/register")
                 .then()
@@ -48,7 +48,7 @@ public class ApiTests extends TestBase {
                 .log().method()
                 .log().body()
                 .body("{ \"name\": \"morpheus\", \"job\": \"leader\"}")
-                .contentType(ContentType.JSON)
+                .contentType(JSON)
                 .when()
                 .post("/users")
                 .then()
@@ -66,7 +66,7 @@ public class ApiTests extends TestBase {
                 .log().method()
                 .log().body()
                 .body("{ \"name\": \"morpheus\", \"job\": \"zion resident\"}")
-                .contentType(ContentType.JSON)
+                .contentType(JSON)
                 .when()
                 .put("/users/2")
                 .then()
